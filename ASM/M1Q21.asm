@@ -8,10 +8,10 @@ main:
         lwc1    $f1, sdn        # $f1 = SDN
         lwc1    $f2, ldn        # $f2 = LDN
         lwc1    $f4, snn        # $f4 = SNN
-        add.s   $f3, $f1, $f2   # SUM = SDN + LDN
-        sub.s   $f12, $f4, $f2  # GAP = SNN - LDN
-        mfc1    $t0, $f3        # $t0 = bits of SUM
-        mfc1    $t1, $f12       # $t1 = bits of GAP
-        add     $s0, $t0, $t1   # Problem C analyzes this instruction
+        add.s   $f3, $f1, $f2   # add the values in $f1 and $f2, put the result in $f3
+        sub.s   $f12, $f4, $f2  # subtract $f2 from $f4, put the result in $f12
+        mfc1    $t0, $f3        # copy the bits of $f3 to $t0
+        mfc1    $t1, $f12       # copy the bits of $f12 to $t1
+        add     $s0, $t0, $t1   # Question C analyzes this instruction
         li      $v0, 10         # exit
         syscall
